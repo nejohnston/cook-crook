@@ -20,7 +20,6 @@
     "react/jsx-indent-props": [2, 4],
     "react/prop-types": 1,
     "comma-dangle": 0,
-    "import/no-named-as-default": 0,
-    "import/prefer-default-export": 1
+    "import/no-named-as-default": 0
   }
 }
