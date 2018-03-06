@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import HeaderBar from "../HeaderBar";
+import CircularProgress from 'material-ui/CircularProgress';
 
-import CircularProgress from "material-ui/CircularProgress";
+import { connect } from 'react-redux';
 
-import { connect } from "react-redux";
+import { withRouter } from 'react-router-dom';
 
-import { withRouter } from "react-router-dom";
+import HeaderBar from '../HeaderBar';
 
-import "./styles.css";
+import './styles.css';
 
 const Loader = () => (
   <div className="loadingWrapper">
@@ -18,33 +18,29 @@ const Loader = () => (
 );
 
 const Layout = ({ children, authenticated, userLoading }) =>
-  userLoading ? (
+  (userLoading ? (
     <Loader />
   ) : (
     <div className="appContentWrapper">
-      <div className="appHeader">
-        {authenticated && <HeaderBar />}
-      </div>
+      <div className="appHeader">{authenticated && <HeaderBar />}</div>
       <div className="appContent">{children}</div>
       <footer className="appFooter">
-        {authenticated && (
-          <p>© 2017 Boomtown Corp. All Rights Reserved</p>
-        )}
+        {authenticated && <p>© 2017 Boomtown Corp. All Rights Reserved</p>}
       </footer>
     </div>
-  );
+  ));
 
 Layout.defaultProps = {
-  children: null
+  children: null,
 };
 
 Layout.propTypes = {
-  children: PropTypes.node
+  children: PropTypes.node,
 };
 
 const mapStateToProps = state => ({
   authenticated: state.auth.authenticated,
-  userLoading: state.auth.userLoading
+  userLoading: state.auth.userLoading,
 });
 
 export default withRouter(connect(mapStateToProps)(Layout));

@@ -1,22 +1,20 @@
-import React, { Component } from "react";
+import React from 'react';
 
-import Items from "../../containers/Items";
-import ItemsContainer from "../../containers/Items";
-import ItemCard from "../ItemCard";
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 
-import Masonry from "react-masonry-component";
+import Masonry from 'react-masonry-component';
 
-import FloatingActionButton from "material-ui/FloatingActionButton";
-import ContentAdd from "material-ui/svg-icons/content/add";
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
-import "./styles.css";
+import ItemCard from '../ItemCard';
+import './styles.css';
 
 const masonryOptions = {
   enableResizableChildren: true,
-  transitionDuration: 2000
+  transitionDuration: 2000,
 };
 
 const ItemCardList = ({ items, itemTags }) => (
@@ -24,19 +22,12 @@ const ItemCardList = ({ items, itemTags }) => (
     <Masonry options={masonryOptions}>
       {itemTags && itemTags.length
         ? items
-            .filter(item =>
-              item.tags.some(tag => itemTags.includes(tag.title))
-            )
+            .filter(item => item.tags.some(tag => itemTags.includes(tag.title)))
             .map(item => <ItemCard key={item.id} item={item} />)
-        : items.map(item => (
-            <ItemCard key={item.id} item={item} />
-          ))}
+        : items.map(item => <ItemCard key={item.id} item={item} />)}
     </Masonry>
     <Link to="/share">
-      <FloatingActionButton
-        backgroundColor="#000"
-        className="contentAddButton"
-      >
+      <FloatingActionButton backgroundColor="#000" className="contentAddButton">
         <ContentAdd />
       </FloatingActionButton>
     </Link>
