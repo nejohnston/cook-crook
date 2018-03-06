@@ -1,5 +1,5 @@
 {
-  "name": "boomtown-starter",
+  "name": "cook-crook",
   "quokka": {
     "babel": true
   },
@@ -47,6 +47,7 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "json-server": "json-server --watch ../server/db.json --port 3001",
-    "dev": "concurrently \"react-scripts start\" \"json-server --watch ../server/db.json --port 3001\""
+    "dev":
+      "concurrently \"react-scripts start\" \"json-server --watch ../server/db.json --port 3001\""
   }
 }

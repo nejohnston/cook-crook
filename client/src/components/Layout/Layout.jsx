@@ -19,19 +19,19 @@ const Layout = ({ children, authenticated, userLoading }) =>
       <div className="appHeader">{authenticated && <HeaderBar />}</div>
       <div className="appContent">{children}</div>
       <footer className="appFooter">
-        {authenticated && <p>© 2018 DietAddict All Rights Reserved</p>}
+        {authenticated && <p>© 2018 Cook Crook All Rights Reserved</p>}
       </footer>
     </div>
   ));
 
 Layout.defaultProps = {
   children: null,
-  authenticated: null,
 };
 
 Layout.propTypes = {
   children: PropTypes.node,
-  authenticated: PropTypes.bool,
+  authenticated: PropTypes.string.isRequired,
+  userLoading: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = state => ({

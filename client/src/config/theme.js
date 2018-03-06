@@ -1,11 +1,11 @@
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { blueGrey900, white } from 'material-ui/styles/colors';
+import { amber600, white } from 'material-ui/styles/colors';
 
 export default getMuiTheme({
-    palette: {
-        textColor: blueGrey900,
-        alternateTextColor: white,
-        primary1Color: '#48C6EF',
-        accent1Color: blueGrey900
-    }
+  palette: {
+    textColor: amber600,
+    alternateTextColor: white,
+    primary1Color: '#FFB300',
+    accent1Color: amber600,
+  },
 });
