@@ -68,6 +68,5 @@ const Boomtown = () => (
     </Provider>
   </MuiThemeProvider>
 );
-
 ReactDOM.render(<Boomtown />, document.getElementById('root'));
 registerServiceWorker();

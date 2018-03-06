@@ -7,26 +7,19 @@ import store from '../../redux/store';
 
 import './styles.css';
 
-const tags = [
-  'Electronics',
-  'Household Items',
-  'Musical Instruments',
-  'Physical Media',
-  'Recreational Equipment',
-  'Sporting Goods',
-  'Tools',
-];
+const tags = ['Vegan', 'Ketogenic', 'Vegetarian', 'Raw food', 'Liquor', 'If You High'];
 
-const menuItems = values => tags.map(tag => (
-  <MenuItem
-    insetChildren
-    key={tag}
-    checked={values && values.indexOf(tag) > -1}
-    value={tag}
-    label={tag}
-    primaryText={tag}
-  />
-));
+const menuItems = values =>
+  tags.map(tag => (
+    <MenuItem
+      insetChildren
+      key={tag}
+      checked={values && values.indexOf(tag) > -1}
+      value={tag}
+      label={tag}
+      primaryText={tag}
+    />
+  ));
 
 const Filter = ({ tags, handleChange, values }) => (
   <SelectField

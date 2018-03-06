@@ -1,13 +1,13 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-import { firebaseAuth } from "../../config/firebase";
+import { firebaseAuth } from '../../config/firebase';
 
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import Login from "./Login";
+import Login from './Login';
 
-import { Redirect, withRouter } from "react-router-dom";
+import { Redirect, withRouter } from 'react-router-dom';
 
 class LoginContainer extends Component {
   static propTypes = {};
@@ -15,9 +15,9 @@ class LoginContainer extends Component {
   constructor() {
     super();
     this.state = {
-      emailInputValue: "",
-      passwordInputValue: "",
-      loginError: { message: "" }
+      emailInputValue: '',
+      passwordInputValue: '',
+      loginError: { message: '' },
     };
   }
   handleUpdateEmail = ({ target: { value } }) => {
@@ -30,10 +30,7 @@ class LoginContainer extends Component {
   login = () => {
     if (this.state.emailInputValue && this.state.passwordInputValue) {
       firebaseAuth
-        .signInWithEmailAndPassword(
-          this.state.emailInputValue,
-          this.state.passwordInputValue
-        )
+        .signInWithEmailAndPassword(this.state.emailInputValue, this.state.passwordInputValue)
         .catch(error => {
           // Handle Errors here.
           this.setState({ loginError: error });
@@ -43,7 +40,7 @@ class LoginContainer extends Component {
 
   render() {
     const { from } = this.props.location.state || {
-      from: { pathname: "/items" }
+      from: { pathname: '/recipes' },
     };
     return !this.props.authenticated ? (
       <Login
@@ -62,7 +59,7 @@ class LoginContainer extends Component {
 
 const mapStateToProps = state => ({
   authenticated: state.auth.authenticated,
-  userLoading: state.auth.userLoading
+  userLoading: state.auth.userLoading,
 });
 
 export default connect(mapStateToProps)(LoginContainer);

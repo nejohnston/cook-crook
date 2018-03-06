@@ -1,7 +1,8 @@
 const DataLoader = require('dataloader');
 // const app = require("./resources/postgresResource");
 
-// A batch loading function accepts an Array of keys, and returns a Promise which resolves to an Array of values. There are a few constraints that must be upheld:
+// A batch loading function accepts an Array of keys, and returns a Promise
+// which resolves to an Array of values. There are a few constraints that must be upheld:
 
 // The Array of values must be the same length as the Array of keys.
 // Each index in the Array of values must correspond to the same index in the Array of keys.
