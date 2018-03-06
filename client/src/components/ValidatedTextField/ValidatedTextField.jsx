@@ -2,9 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import TextField from 'material-ui/TextField';
 
-import { blueGrey900 } from 'material-ui/styles/colors';
-
-import './styles.css';
+import styles from './styles';
 
 const ValidatedTextField = ({
   label, handleChange, value, type,

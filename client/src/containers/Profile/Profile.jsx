@@ -3,8 +3,8 @@ import React from 'react';
 import Masonry from 'react-masonry-component';
 
 import RecipeCard from '../../components/RecipeCard';
-import Items from '../Items/Items';
-import ItemsContainer from '../Items/ItemsContainer';
+import Recipes from '../Recipes/Recipes';
+import RecipesContainer from '../Recipes/RecipesContainer';
 import ProfileContainer from './ProfileContainer';
 import ProfileCard from './ProfileCard';
 
