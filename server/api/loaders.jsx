@@ -7,30 +7,19 @@ const DataLoader = require("dataloader");
 // Each index in the Array of values must correspond to the same index in the Array of keys.
 
 module.exports = ({
-  postgresResource: {
-    getItems,
-    getSingleItem,
-    getTags,
-    getSharedItems
-  },
+  postgresResource: { getItems, getSingleItem, getTags, getSharedItems },
   firebaseResource: { getUsers, getSingleUser }
 }) => {
   return {
-    allItems: new DataLoader(ids =>
-      Promise.all(ids.map(id => getItems(id)))
-    ),
+    allItems: new DataLoader(ids => Promise.all(ids.map(id => getItems(id)))),
     singleItem: new DataLoader(ids =>
       Promise.all(ids.map(id => getSingleItem(id)))
     ),
     // userSharedItems: new DataLoader(ids =>
     //   Promise.all(ids.map(id => getSharedItems(id)))
     // ),
-    itemTags: new DataLoader(ids =>
-      Promise.all(ids.map(id => getTags(id)))
-    ),
-    allUsers: new DataLoader(ids =>
-      Promise.all(ids.map(id => getUsers(id)))
-    ),
+    itemTags: new DataLoader(ids => Promise.all(ids.map(id => getTags(id)))),
+    allUsers: new DataLoader(ids => Promise.all(ids.map(id => getUsers(id)))),
     singleUser: new DataLoader(ids =>
       Promise.all(ids.map(id => getSingleUser(id)))
     )
