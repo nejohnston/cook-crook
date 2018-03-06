@@ -66,6 +66,11 @@ const Login = ({
 
 Login.propTypes = {
   login: PropTypes.func.isRequired,
+  loginError: PropTypes.func.isRequired,
+  handleUpdateEmail: PropTypes.func.isRequired,
+  handleUpdatePassword: PropTypes.func.isRequired,
+  emailInputValue: PropTypes.func.isRequired,
+  passwordInputValue: PropTypes.func.isRequired,
 };
 
 export default Login;
