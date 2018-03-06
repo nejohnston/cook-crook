@@ -1,15 +1,13 @@
-const firebase = require("firebase");
-require("firebase/auth");
+const firebase = require('firebase');
+require('firebase/auth');
 
-module.exports = app => {
-  const firebaseApp = firebase.initializeApp(
-    app.get("FIREBASE_CONFIG")
-  );
+module.exports = (app) => {
+  const firebaseApp = firebase.initializeApp(app.get('FIREBASE_CONFIG'));
   const db = firebaseApp.database();
 
   return {
     async getUsers() {
-      let users = await db.ref("users").once("value");
+      let users = await db.ref('users').once('value');
       users = users.val();
       const userList = [];
       for (userid in users) {
@@ -17,19 +15,19 @@ module.exports = app => {
           id: userid,
           email: users[userid].email,
           fullname: users[userid].fullname,
-          imageurl: ""
+          imageurl: '',
         });
       }
       return userList;
     },
     async getSingleUser(userid) {
-      let user = await db.ref(`users/${userid}`).once("value");
+      let user = await db.ref(`users/${userid}`).once('value');
       user = user.val();
       const userList = [];
       return {
         id: userid,
-        ...user
+        ...user,
       };
-    }
+    },
   };
 };
