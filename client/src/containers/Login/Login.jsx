@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import RaisedButton from "material-ui/RaisedButton";
-import Paper from "material-ui/Paper";
+import RaisedButton from 'material-ui/RaisedButton';
+import Paper from 'material-ui/Paper';
 
-import ValidatedTextField from "../../components/ValidatedTextField";
+import ValidatedTextField from '../../components/ValidatedTextField';
 
-import "./styles.css";
-import logo from "../../images/boomtown-logo.svg";
-import bottomLeft from "../../images/home-bl.svg";
-import topRight from "../../images/home-tr.svg";
+import './styles.css';
+import logo from '../../images/boomtown-logo.svg';
+import bottomLeft from '../../images/home-bl.svg';
+import topRight from '../../images/home-tr.svg';
 
 const Login = ({
   login,
@@ -17,7 +17,7 @@ const Login = ({
   handleUpdateEmail,
   handleUpdatePassword,
   emailInputValue,
-  passwordInputValue
+  passwordInputValue,
 }) => (
   <div className="page login">
     <div className="logo">
@@ -33,7 +33,7 @@ const Login = ({
       <Paper zDepth={5}>
         <div className="formContainer">
           <form
-            onSubmit={e => {
+            onSubmit={(e) => {
               e.preventDefault();
               login();
             }}
@@ -53,12 +53,7 @@ const Login = ({
                 label="Password"
               />
             </div>
-            <RaisedButton
-              className="enterButton"
-              primary
-              fullWidth
-              type="submit"
-            >
+            <RaisedButton className="enterButton" primary fullWidth type="submit">
               Enter
             </RaisedButton>
           </form>
@@ -70,7 +65,7 @@ const Login = ({
 );
 
 Login.propTypes = {
-  login: PropTypes.func.isRequired
+  login: PropTypes.func.isRequired,
 };
 
 export default Login;

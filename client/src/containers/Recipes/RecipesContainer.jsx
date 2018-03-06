@@ -15,7 +15,7 @@ import './styles.css';
 import { updateModalState } from '../../redux/modules/borrowed';
 
 class ItemsContainer extends Component {
-  PropTypes = {
+  static PropTypes = {
     loading: PropTypes.bool,
     items: PropTypes.array,
     itemTags: PropTypes.array,

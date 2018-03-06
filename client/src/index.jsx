@@ -23,6 +23,7 @@ import Profile from './containers/Profile';
 import ProfileContainer from './containers/Profile/ProfileContainer';
 import ShareContainer from './containers/Share';
 import NotFoundContainer from './containers/NotFound';
+import RecipesContainer from './containers/Recipes/RecipesContainer';
 
 import './index.css';
 import { updateAuthState, userLoading } from './redux/modules/auth';
@@ -56,7 +57,7 @@ const Boomtown = () => (
           <Layout>
             <Switch>
               <Route exact path="/" component={LoginContainer} />
-              <PrivateRoute exact path="/items" component={RecipesContainer} />
+              <PrivateRoute exact path="/recipes" component={RecipesContainer} />
               <PrivateRoute exact path="/profile/:userid" component={ProfileContainer} />
               <PrivateRoute exact path="/share" component={ShareContainer} />
               <PrivateRoute exact path="*" component={NotFoundContainer} />

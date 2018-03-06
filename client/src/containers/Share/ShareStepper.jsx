@@ -1,33 +1,28 @@
-import React, { Component } from "react";
-import {
-  Step,
-  Stepper,
-  StepLabel,
-  StepContent
-} from "material-ui/Stepper";
-import TextField from "material-ui/TextField";
-import RaisedButton from "material-ui/RaisedButton";
-import FlatButton from "material-ui/FlatButton";
+import React, { Component } from 'react';
+import { Step, Stepper, StepLabel, StepContent } from 'material-ui/Stepper';
+import TextField from 'material-ui/TextField';
+import RaisedButton from 'material-ui/RaisedButton';
+import FlatButton from 'material-ui/FlatButton';
 
 import {
   shareUpdateImage,
   shareUpdateTitle,
   shareUpdateDescription,
   toggleImageSelected,
-  resetShareCardFields
-} from "../../redux/modules/share";
+  resetShareCardFields,
+} from '../../redux/modules/share';
 
-import firebase from "firebase";
-import { firebaseAuth } from "../../config/firebase";
+import firebase from 'firebase';
+import { firebaseAuth } from '../../config/firebase';
 
-import gql from "graphql-tag";
-import { graphql, compose } from "react-apollo";
+import gql from 'graphql-tag';
+import { graphql, compose } from 'react-apollo';
 
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 
-import Filter from "../../components/FilterField/FilterField";
+import Filter from '../../components/FilterField/FilterField';
 
-import { withRouter } from "react-router-dom";
+import { withRouter } from 'react-router-dom';
 
 /**
  * Vertical steppers are designed for narrow screen sizes. They are ideal for mobile.
@@ -40,11 +35,10 @@ import { withRouter } from "react-router-dom";
 class ShareStepper extends Component {
   state = {
     finished: false,
-    stepIndex: 0
+    stepIndex: 0,
   };
 
-  openFileDialog = () =>
-    document.getElementById("image").click();
+  openFileDialog = () => document.getElementById('image').click();
 
   uploadFile = input => {
     // create firebase storage reference
@@ -53,7 +47,7 @@ class ShareStepper extends Component {
     const file = input.target.files[0];
     const name = `${+new Date()}-${file.name}`;
     const metadata = {
-      contentType: file.type
+      contentType: file.type,
     };
     const task = ref.child(name).put(file, metadata);
     task
@@ -79,7 +73,7 @@ class ShareStepper extends Component {
     const { stepIndex } = this.state;
     this.setState({
       stepIndex: stepIndex + 1,
-      finished: stepIndex >= 2
+      finished: stepIndex >= 2,
     });
   };
 
@@ -94,9 +88,9 @@ class ShareStepper extends Component {
     const { stepIndex } = this.state;
 
     return (
-      <div style={{ margin: "12px 0" }}>
+      <div style={{ margin: '12px 0' }}>
         <RaisedButton
-          label={stepIndex === 3 ? "Confirm" : "Next"}
+          label={stepIndex === 3 ? 'Confirm' : 'Next'}
           disableTouchRipple={true}
           disableFocusRipple={true}
           onClick={this.handleNext}
@@ -124,16 +118,10 @@ class ShareStepper extends Component {
           <Step>
             <StepLabel>Add An Image</StepLabel>
             <StepContent>
-              <p>
-                We live in a visual culture. Upload an image of
-                the item you're sharing
-              </p>
-              <RaisedButton
-                label="Select An Image"
-                onClick={this.openFileDialog}
-              >
+              <p>We live in a visual culture. Upload an image of the item you're sharing</p>
+              <RaisedButton label="Select An Image" onClick={this.openFileDialog}>
                 <div className="hideFileInput">
-                  {" "}
+                  {' '}
                   <input
                     type="file"
                     accept="image/*"
@@ -150,14 +138,10 @@ class ShareStepper extends Component {
             <StepLabel>Add a Title & Description</StepLabel>
             <StepContent>
               <p>
-                Folks need to know what you're sharing. Give them
-                a clue by adding a title & description.
+                Folks need to know what you're sharing. Give them a clue by adding a title &
+                description.
               </p>
-              <TextField
-                hintText="Title"
-                floatingLabelText="Title"
-                floatingLabelFixed={true}
-              />
+              <TextField hintText="Title" floatingLabelText="Title" floatingLabelFixed={true} />
               <br />
               <br />
               <TextField
@@ -182,16 +166,13 @@ class ShareStepper extends Component {
           <Step>
             <StepLabel>Create an ad</StepLabel>
             <StepContent>
-              <p>
-                Great! If you're happy with everything, tap the
-                button.
-              </p>
+              <p>Great! If you're happy with everything, tap the button.</p>
               {this.renderStepActions(2)}
             </StepContent>
           </Step>
         </Stepper>
         {finished && (
-          <p style={{ margin: "20px 0", textAlign: "center" }}>
+          <p style={{ margin: '20px 0', textAlign: 'center' }}>
             <a
               href="#"
               onClick={event => {
@@ -200,7 +181,7 @@ class ShareStepper extends Component {
               }}
             >
               Click here
-            </a>{" "}
+            </a>{' '}
             to reset the example.
           </p>
         )}
@@ -214,7 +195,7 @@ const mapStateToProps = state => ({
   descriptionUpdate: state.share.descriptionUpdate,
   imageUrl: state.share.imageUrl,
   itemTags: state.items.itemTags,
-  toggled: state.share.toggled
+  toggled: state.share.toggled,
 });
 const mapDispatchToProps = dispatch => ({
   shareUpdateTitle: text => {
@@ -231,7 +212,7 @@ const mapDispatchToProps = dispatch => ({
   },
   resetShareCardFields: () => {
     dispatch(resetShareCardFields());
-  }
+  },
 });
 
 const addItem = gql`
@@ -257,7 +238,6 @@ const addItem = gql`
   }
 `;
 
-export default compose(
-  graphql(addItem),
-  connect(mapStateToProps, mapDispatchToProps)
-)(withRouter(ShareStepper));
+export default compose(graphql(addItem), connect(mapStateToProps, mapDispatchToProps))(
+  withRouter(ShareStepper),
+);

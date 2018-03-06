@@ -1,19 +1,16 @@
-import React, { Component } from "react";
+import React from 'react';
 
-import { connect } from "react-redux";
-import store from "../../redux/store";
+import Paper from 'material-ui/Paper';
 
-import Paper from "material-ui/Paper";
+import Gravatar from 'react-gravatar';
 
-import Gravatar from "react-gravatar";
-
-import "../Profile/styles.css";
+import '../Profile/styles.css';
 
 const ProfileCard = ({ user }) => (
   <Paper
     style={{
-      margin: "2rem auto",
-      maxWidth: "800px"
+      margin: '2rem auto',
+      maxWidth: '800px',
     }}
   >
     <header className="profileHeader">
@@ -24,11 +21,7 @@ const ProfileCard = ({ user }) => (
       <p>{user.shareditems.length}</p>
       <p>{user.borroweditems.length}</p>
       <div className="profileMeta">
-        <Gravatar
-          className="gravatarAvatar"
-          email={user.email}
-          size={180}
-        />
+        <Gravatar className="gravatarAvatar" email={user.email} size={180} />
       </div>
     </header>
   </Paper>

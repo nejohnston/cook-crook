@@ -4,11 +4,9 @@ import CircularProgress from 'material-ui/CircularProgress';
 import './styles.css';
 import RecipeCardList from '../../components/RecipeCardList';
 
-const Recipes = ({ items }) => {
-  <RecipeCardList items={items} />;
-};
+const Recipes = ({ items }) => <RecipeCardList items={items} />;
 
 Recipes.propTypes = {
-  items: PropTypes.array.isRequired,
+  // items: PropTypes.object,
 };
 export default Recipes;
