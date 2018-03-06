@@ -9,13 +9,9 @@ import { withRouter } from 'react-router-dom';
 
 import HeaderBar from '../HeaderBar';
 
-import './styles.css';
+import Loader from '../Loader';
 
-const Loader = () => (
-  <div className="loadingWrapper">
-    <CircularProgress color="white" />
-  </div>
-);
+import './styles.css';
 
 const Layout = ({ children, authenticated, userLoading }) =>
   (userLoading ? (
