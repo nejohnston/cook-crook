@@ -1,5 +1,5 @@
 // ACTIONS
-const GET_ITEM_TAG = "GET_ITEM_TAG";
+const GET_ITEM_TAG = 'GET_ITEM_TAG';
 
 // ACTION CREATORS
 // Actions are payloads of information that send data from your
@@ -8,16 +8,16 @@ const GET_ITEM_TAG = "GET_ITEM_TAG";
 
 export const getItemTags = tag => ({
   type: GET_ITEM_TAG,
-  payload: tag
+  payload: tag,
 });
 
 // REDUCER
 
 export default (
   state = {
-    itemTags: []
+    itemTags: [],
   },
-  action
+  action,
 ) => {
   switch (action.type) {
     case GET_ITEM_TAG: {

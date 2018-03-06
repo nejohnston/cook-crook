@@ -1,25 +1,25 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
-import gql from "graphql-tag";
-import { graphql, compose } from "react-apollo";
-import { connect } from "react-redux";
-import store from "../../redux/store";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import gql from 'graphql-tag';
+import { graphql, compose } from 'react-apollo';
+import { connect } from 'react-redux';
+import store from '../../redux/store';
 
-import CircularProgress from "material-ui/CircularProgress";
+import CircularProgress from 'material-ui/CircularProgress';
 
-import ItemCardList from "../../components/ItemCardList";
-import BorrowModal from "../../components/ItemCard/BorrowModal";
+import RecipeCardList from '../../components/RecipeCardList';
+import BorrowModal from '../../components/RecipeCard/BorrowModal';
 // import updateModalState from "../../redux/modules/";
 
-import "./styles.css";
-import { updateModalState } from "../../redux/modules/borrowed";
+import './styles.css';
+import { updateModalState } from '../../redux/modules/borrowed';
 
 class ItemsContainer extends Component {
   PropTypes = {
     loading: PropTypes.bool,
     items: PropTypes.array,
     itemTags: PropTypes.array,
-    modalOpen: PropTypes.bool
+    modalOpen: PropTypes.bool,
   };
   render() {
     const { loading, items } = this.props.data;
@@ -30,10 +30,7 @@ class ItemsContainer extends Component {
     ) : (
       <div className="itemsWrapper">
         {this.props.modalOpen && <BorrowModal />}
-        <ItemCardList
-          items={items}
-          itemTags={this.props.itemTags}
-        />
+        <RecipeCardList items={items} itemTags={this.props.itemTags} />
       </div>
     );
   }
@@ -65,10 +62,7 @@ const fetchItems = gql`
 
 const mapStateToProps = state => ({
   itemTags: state.items.itemTags,
-  modalOpen: state.borrowed.modalOpen
+  modalOpen: state.borrowed.modalOpen,
 });
 // FetchItems??
-export default compose(
-  graphql(fetchItems),
-  connect(mapStateToProps)
-)(ItemsContainer);
+export default compose(graphql(fetchItems), connect(mapStateToProps))(ItemsContainer);

@@ -12,7 +12,7 @@ import Loader from '../Loader';
 import './styles.css';
 
 const Layout = ({ children, authenticated, userLoading }) =>
-  userLoading ? (
+  (userLoading ? (
     <Loader />
   ) : (
     <div className="appContentWrapper">
@@ -22,7 +22,7 @@ const Layout = ({ children, authenticated, userLoading }) =>
         {authenticated && <p>© 2018 DietAddict All Rights Reserved</p>}
       </footer>
     </div>
-  );
+  ));
 
 Layout.defaultProps = {
   children: null,

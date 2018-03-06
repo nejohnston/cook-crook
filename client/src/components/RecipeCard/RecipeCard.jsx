@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-import BorrowModal from './BorrowModal';
-
 import { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from 'material-ui/Card';
 import RaisedButton from 'material-ui/RaisedButton';
 
@@ -12,9 +10,10 @@ import { connect } from 'react-redux';
 
 import moment from 'moment';
 import Gravatar from 'react-gravatar';
+import BorrowModal from './BorrowModal';
+import { updateModalState } from '../../redux/modules/borrowed';
 
 import './styles.css';
-import { updateModalState } from '../../redux/modules/borrowed';
 
 const RecipeCard = ({ item, user, dispatch }) => (
   <div className="RecipeCardWrapper">
@@ -22,7 +21,7 @@ const RecipeCard = ({ item, user, dispatch }) => (
       <CardMedia>
         <img src={item.imageurl} alt="image" />
       </CardMedia>
-      <Link to={'/profile/' + item.itemowner.id}>
+      <Link to={`/profile/${item.itemowner.id}`}>
         <CardHeader
           title={item.itemowner.fullname}
           subtitle={moment(item.created).fromNow()}
@@ -33,7 +32,7 @@ const RecipeCard = ({ item, user, dispatch }) => (
       <CardText>{item.description}</CardText>
       <CardActions>
         <RaisedButton
-          secondary={true}
+          secondary
           className="headerButton"
           label="Borrow"
           onClick={() => dispatch(updateModalState(true))}
@@ -44,7 +43,7 @@ const RecipeCard = ({ item, user, dispatch }) => (
 );
 
 const mapDispatchToProps = dispatch => ({
-  updateModalState: modalOpen => {
+  updateModalState: (modalOpen) => {
     dispatch(updateModalState(modalOpen));
   },
 });

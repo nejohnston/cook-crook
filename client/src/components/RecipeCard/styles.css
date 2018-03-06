@@ -1,16 +1,16 @@
-.itemCardWrapper {
+.RecipeCardWrapper {
   padding: 1%;
   width: 100%;
 }
 
 @media only screen and (min-width: 600px) {
-  .itemCardWrapper {
+  .RecipeCardWrapper {
     width: 50%;
   }
 }
 
 @media only screen and (min-width: 960px) {
-  .itemCardWrapper {
+  .RecipeCardWrapper {
     width: 33%;
   }
 }

@@ -1,9 +1,9 @@
-const UPDATE_MODAL_STATE = "UPDATE_MODAL_STATE";
-const TOGGLED_ITEM = "TOGGLE_ITEM";
+const UPDATE_MODAL_STATE = 'UPDATE_MODAL_STATE';
+const TOGGLED_ITEM = 'TOGGLE_ITEM';
 
 export const updateModalState = modalOpen => ({
   type: TOGGLED_ITEM,
-  payload: modalOpen
+  payload: modalOpen,
 });
 
 // export const toggleItemBeingBorrowed = itemBorrowedInfo => ({
@@ -11,18 +11,18 @@ export const updateModalState = modalOpen => ({
 //   payload: itemBorrowedInfo
 // });
 
-export default function(
+export default function (
   state = {
     // dialoging: "BORROWED_ITEM_INFO"
-    modalOpen: false
+    modalOpen: false,
   },
-  action
+  action,
 ) {
   switch (action.type) {
     case TOGGLED_ITEM: {
       return {
         ...state,
-        modalOpen: action.payload
+        modalOpen: action.payload,
         // ...state,
         // itemBorrowedInfo: action.payload
       };
