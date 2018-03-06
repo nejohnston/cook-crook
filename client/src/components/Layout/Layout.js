@@ -32,10 +32,12 @@ const Layout = ({ children, authenticated, userLoading }) =>
 
 Layout.defaultProps = {
   children: null,
+  authenticated: null,
 };
 
 Layout.propTypes = {
   children: PropTypes.node,
+  authenticated: PropTypes.bool,
 };
 
 const mapStateToProps = state => ({
