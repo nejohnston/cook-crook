@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-export class Loader extends Component {
-  static propTypes = {
-    prop: PropTypes,
-  };
+import CircularProgress from 'material-ui/CircularProgress';
 
-  render() {
-    return <div />;
-  }
-}
+const Loader = () => (
+  <div className="loadingWrapper">
+    <CircularProgress color="white" />
+  </div>
+);
 
 export default Loader;

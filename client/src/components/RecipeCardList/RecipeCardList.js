@@ -9,7 +9,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 
 import { Link } from 'react-router-dom';
 
-import ItemCard from '../ItemCard';
+import RecipeCard from '../RecipeCard';
 import './styles.css';
 
 const masonryOptions = {
@@ -17,14 +17,14 @@ const masonryOptions = {
   transitionDuration: 2000,
 };
 
-const ItemCardList = ({ items, itemTags }) => (
+const RecipeCardList = ({ items, itemTags }) => (
   <div className="itemsWrapper">
     <Masonry options={masonryOptions}>
       {itemTags && itemTags.length
         ? items
             .filter(item => item.tags.some(tag => itemTags.includes(tag.title)))
-            .map(item => <ItemCard key={item.id} item={item} />)
-        : items.map(item => <ItemCard key={item.id} item={item} />)}
+            .map(item => <RecipeCard key={item.id} item={item} />)
+        : items.map(item => <RecipeCard key={item.id} item={item} />)}
     </Masonry>
     <Link to="/share">
       <FloatingActionButton backgroundColor="#000" className="contentAddButton">
@@ -34,4 +34,4 @@ const ItemCardList = ({ items, itemTags }) => (
   </div>
 );
 
-export default ItemCardList;
+export default RecipeCardList;
