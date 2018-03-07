@@ -9,8 +9,11 @@ const DataLoader = require('dataloader');
 
 module.exports = ({
   postgresResource: {
- getItems, getSingleItem, getTags, getSharedItems 
-},
+    getItems,
+    getSingleItem,
+    getTags,
+    //  getSharedItems
+  },
   firebaseResource: { getUsers, getSingleUser },
 }) => ({
   allItems: new DataLoader(ids => Promise.all(ids.map(id => getItems(id)))),
@@ -19,7 +22,7 @@ module.exports = ({
   // userSharedItems: new DataLoader(ids =>
   //   Promise.all(ids.map(id => getSharedItems(id)))
   // ),
-  itemTags: new DataLoader(ids => Promise.all(ids.map(id => getTags(id)))),
+  dietTags: new DataLoader(ids => Promise.all(ids.map(id => getTags(id)))),
   allUsers: new DataLoader(ids => Promise.all(ids.map(id => getUsers(id)))),
   singleUser: new DataLoader(ids =>
     Promise.all(ids.map(id => getSingleUser(id))),),

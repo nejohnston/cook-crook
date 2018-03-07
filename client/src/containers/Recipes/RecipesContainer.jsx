@@ -14,11 +14,11 @@ import BorrowModal from '../../components/RecipeCard/BorrowModal';
 import './styles.css';
 import { updateModalState } from '../../redux/modules/borrowed';
 
-class ItemsContainer extends Component {
+class RecipesContainer extends Component {
   static PropTypes = {
     loading: PropTypes.bool,
     items: PropTypes.array,
-    itemTags: PropTypes.array,
+    dietTags: PropTypes.array,
     modalOpen: PropTypes.bool,
   };
   render() {
@@ -30,7 +30,7 @@ class ItemsContainer extends Component {
     ) : (
       <div className="itemsWrapper">
         {this.props.modalOpen && <BorrowModal />}
-        <Recipes items={items} itemTags={this.props.itemTags} />
+        <Recipes items={items} dietTags={this.props.dietTags} />
       </div>
     );
   }
@@ -61,8 +61,8 @@ const fetchItems = gql`
 `;
 
 const mapStateToProps = state => ({
-  itemTags: state.items.itemTags,
+  dietTags: state.recipes.dietTags,
   modalOpen: state.borrowed.modalOpen,
 });
 // FetchItems??
-export default compose(graphql(fetchItems), connect(mapStateToProps))(ItemsContainer);
+export default compose(graphql(fetchItems), connect(mapStateToProps))(RecipesContainer);

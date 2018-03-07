@@ -194,7 +194,7 @@ const mapStateToProps = state => ({
   titleUpdate: state.share.titleUpdate,
   descriptionUpdate: state.share.descriptionUpdate,
   imageUrl: state.share.imageUrl,
-  itemTags: state.items.itemTags,
+  dietTags: state.items.dietTags,
   toggled: state.share.toggled,
 });
 const mapDispatchToProps = dispatch => ({

@@ -28,7 +28,7 @@ module.exports = ({
       return null;
     },
     tags({ id }, args, context) {
-      return context.loaders.itemTags.load(id);
+      return context.loaders.dietTags.load(id);
     },
   },
   User: {

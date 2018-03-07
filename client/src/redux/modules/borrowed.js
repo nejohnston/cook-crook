@@ -1,4 +1,4 @@
-const UPDATE_MODAL_STATE = 'UPDATE_MODAL_STATE';
+// const UPDATE_MODAL_STATE = 'UPDATE_MODAL_STATE';
 const TOGGLED_ITEM = 'TOGGLE_ITEM';
 
 export const updateModalState = modalOpen => ({

@@ -17,12 +17,12 @@ const masonryOptions = {
   transitionDuration: 2000,
 };
 
-const Recipes = ({ items, itemTags }) => (
+const Recipes = ({ items, dietTags }) => (
   <div className="itemsWrapper">
     <Masonry options={masonryOptions}>
-      {/* {itemTags && itemTags.length
+      {/* {dietTags && dietTags.length
         ? items
-            .filter(item => item.tags.some(tag => itemTags.includes(tag.title)))
+            .filter(item => item.tags.some(tag => dietTags.includes(tag.title)))
             .map(item => <RecipeCard key={item.id} item={item} />)
         : items.map(item => <RecipeCard key={item.id} item={item} />)} */}
     </Masonry>

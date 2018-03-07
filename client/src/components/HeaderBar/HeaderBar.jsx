@@ -10,7 +10,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
 import SvgIcon from 'material-ui/SvgIcon';
 
-import { getItemTags } from '../../redux/modules/recipes';
+import { getDietTags } from '../../redux/modules/recipes';
 import Filter from '../FilterField/FilterField';
 
 import Logo from '../../images/boomtown-logo.svg';
@@ -39,7 +39,7 @@ const HeaderButtons = () => (
   </div>
 );
 
-const HeaderBar = ({ itemTags, dispatch }) => (
+const HeaderBar = ({ dietTags, dispatch }) => (
   <AppBar
     showMenuIconButton={false}
     className="headerBar"
@@ -59,9 +59,9 @@ const HeaderBar = ({ itemTags, dispatch }) => (
           render={() => (
             <Filter
               handleChange={(event, index, tags) => {
-                dispatch(getItemTags(tags));
+                dispatch(getDietTags(tags));
               }}
-              values={itemTags}
+              values={dietTags}
             />
           )}
         />
@@ -72,7 +72,7 @@ const HeaderBar = ({ itemTags, dispatch }) => (
 );
 
 const mapStateToProps = state => ({
-  itemTags: state.items.itemTags,
+  dietTags: state.items.dietTags,
 });
 
 export default withRouter(connect(mapStateToProps)(HeaderBar));

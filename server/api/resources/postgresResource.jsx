@@ -32,9 +32,9 @@ module.exports = async (app) => {
       return new Promise((resolve, reject) => {
         client.query(
           `SELECT * FROM tags 
-            INNER JOIN itemtags 
-            ON itemtags.tagid = tags.id 
-            WHERE itemtags.itemid=$1`,
+            INNER JOIN dietTags 
+            ON dietTags.tagid = tags.id 
+            WHERE dietTags.itemid=$1`,
           [itemid],
           (err, data) => {
             resolve(data.rows);
@@ -75,7 +75,7 @@ module.exports = async (app) => {
         await client.query('BEGIN');
         const itemResult = await client.query(itemInsertQuery, itemValues);
 
-        const tagsInsertQuery = `INSERT INTO itemtags(itemid, tagid) VALUES ${tq(tags,)}`;
+        const tagsInsertQuery = `INSERT INTO dietTags(itemid, tagid) VALUES ${tq(tags,)}`;
 
         await client.query(tagsInsertQuery, [itemResult.rows[0].id, ...tags]);
         await client.query('COMMIT');
