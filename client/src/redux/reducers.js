@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import itemsReducer from './modules/items';
+import itemsReducer from './modules/recipes';
 import profileReducer from './modules/profile';
 import authReducer from './modules/auth';
 import borrowedReducer from './modules/borrowed';

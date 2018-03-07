@@ -1,12 +1,37 @@
 import React from 'react';
+
 import PropTypes from 'prop-types';
-import CircularProgress from 'material-ui/CircularProgress';
+
+import Masonry from 'react-masonry-component';
+
+import FloatingActionButton from 'material-ui/FloatingActionButton';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+
+import { Link } from 'react-router-dom';
+
+import RecipeCard from '../../components/RecipeCard';
 import './styles.css';
-import RecipeCardList from '../../components/RecipeCardList';
 
-const Recipes = ({ items }) => <RecipeCardList items={items} />;
-
-Recipes.propTypes = {
-  // items: PropTypes.object,
+const masonryOptions = {
+  enableResizableChildren: true,
+  transitionDuration: 2000,
 };
+
+const Recipes = ({ items, itemTags }) => (
+  <div className="itemsWrapper">
+    <Masonry options={masonryOptions}>
+      {/* {itemTags && itemTags.length
+        ? items
+            .filter(item => item.tags.some(tag => itemTags.includes(tag.title)))
+            .map(item => <RecipeCard key={item.id} item={item} />)
+        : items.map(item => <RecipeCard key={item.id} item={item} />)} */}
+    </Masonry>
+    <Link to="/share">
+      <FloatingActionButton backgroundColor="#000" className="contentAddButton">
+        <ContentAdd />
+      </FloatingActionButton>
+    </Link>
+  </div>
+);
+
 export default Recipes;

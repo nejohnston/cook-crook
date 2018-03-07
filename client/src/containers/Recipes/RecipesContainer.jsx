@@ -7,7 +7,7 @@ import store from '../../redux/store';
 
 import CircularProgress from 'material-ui/CircularProgress';
 
-import RecipeCardList from '../../components/RecipeCardList';
+import Recipes from './Recipes';
 import BorrowModal from '../../components/RecipeCard/BorrowModal';
 // import updateModalState from "../../redux/modules/";
 
@@ -30,7 +30,7 @@ class ItemsContainer extends Component {
     ) : (
       <div className="itemsWrapper">
         {this.props.modalOpen && <BorrowModal />}
-        <RecipeCardList items={items} itemTags={this.props.itemTags} />
+        <Recipes items={items} itemTags={this.props.itemTags} />
       </div>
     );
   }

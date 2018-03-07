@@ -1,16 +1,16 @@
-import { blueGrey900 } from 'material-ui/styles/colors';
+import { amber600 } from 'material-ui/styles/colors';
 
 const styles = {
   fieldStyle: {
     width: '100%',
   },
   errorStyle: {
-    color: blueGrey900,
+    color: amber600,
     position: 'absolute',
     bottom: '-0.42rem',
   },
   underlineStyle: {
-    borderColor: blueGrey900,
+    borderColor: amber600,
   },
 };
 
