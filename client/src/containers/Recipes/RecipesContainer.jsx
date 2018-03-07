@@ -61,7 +61,7 @@ const fetchItems = gql`
 `;
 
 const mapStateToProps = state => ({
-  dietTags: state.recipes.dietTags,
+  dietTags: state.diet.dietTags,
   modalOpen: state.borrowed.modalOpen,
 });
 // FetchItems??

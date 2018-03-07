@@ -10,7 +10,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
 import SvgIcon from 'material-ui/SvgIcon';
 
-import { getDietTags } from '../../redux/modules/diets';
+import { getDietTags } from '../../redux/modules/diet';
 import Filter from '../FilterField/FilterField';
 
 import Logo from '../../images/boomtown-logo.svg';
@@ -72,7 +72,7 @@ const HeaderBar = ({ dietTags, dispatch }) => (
 );
 
 const mapStateToProps = state => ({
-  dietTags: state.items.dietTags,
+  dietTags: state.diet.dietTags,
 });
 
 export default withRouter(connect(mapStateToProps)(HeaderBar));
