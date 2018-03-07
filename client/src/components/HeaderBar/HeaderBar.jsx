@@ -10,7 +10,7 @@ import RaisedButton from 'material-ui/RaisedButton';
 import SelectField from 'material-ui/SelectField';
 import SvgIcon from 'material-ui/SvgIcon';
 
-import { getDietTags } from '../../redux/modules/recipes';
+import { getDietTags } from '../../redux/modules/diets';
 import Filter from '../FilterField/FilterField';
 
 import Logo from '../../images/boomtown-logo.svg';
