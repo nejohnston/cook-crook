@@ -1,6 +1,7 @@
 const { Client } = require('pg');
 
-const tq = tags => tags.map((id, i) => `($1, $${i + 2})`).join(', ');
+const tq = tags =>
+  tags.map((id, i) => `($1, $${i + 2})`).join(', ');
 
 module.exports = async (app) => {
   const client = new Client({
@@ -16,16 +17,23 @@ module.exports = async (app) => {
   return {
     getItems() {
       return new Promise((resolve, reject) => {
-        client.query('SELECT * FROM items', (err, data) => {
-          resolve(data.rows);
-        });
+        client.query(
+          'SELECT * FROM items',
+          (err, data) => {
+            resolve(data.rows);
+          },
+        );
       });
     },
     getSingleItem(id) {
       return new Promise((resolve, reject) => {
-        client.query('SELECT * FROM items WHERE id = $1', [id], (err, data) => {
-          resolve(data.rows);
-        });
+        client.query(
+          'SELECT * FROM items WHERE id = $1',
+          [id],
+          (err, data) => {
+            resolve(data.rows);
+          },
+        );
       });
     },
     getTags(itemid) {
@@ -65,19 +73,34 @@ module.exports = async (app) => {
       });
     },
     async createItem({
- title, description, imageurl, itemowner, tags 
-}) {
-      const itemValues = [title, description, imageurl, itemowner];
+      title,
+      description,
+      imageurl,
+      itemowner,
+      tags,
+    }) {
+      const itemValues = [
+        title,
+        description,
+        imageurl,
+        itemowner,
+      ];
       tags = tags.map(tag => tag.id);
       const itemInsertQuery =
         'INSERT INTO items(title, description, imageurl, itemowner) VALUES($1, $2, $3, $4) RETURNING *';
       try {
         await client.query('BEGIN');
-        const itemResult = await client.query(itemInsertQuery, itemValues);
+        const itemResult = await client.query(
+          itemInsertQuery,
+          itemValues,
+        );
 
         const tagsInsertQuery = `INSERT INTO dietTags(itemid, tagid) VALUES ${tq(tags,)}`;
 
-        await client.query(tagsInsertQuery, [itemResult.rows[0].id, ...tags]);
+        await client.query(tagsInsertQuery, [
+          itemResult.rows[0].id,
+          ...tags,
+        ]);
         await client.query('COMMIT');
         return itemResult.rows[0];
       } catch (e) {

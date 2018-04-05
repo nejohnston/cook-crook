@@ -10,8 +10,6 @@ import Login from './Login';
 import { Redirect, withRouter } from 'react-router-dom';
 
 class LoginContainer extends Component {
-  static propTypes = {};
-
   constructor() {
     super();
     this.state = {

@@ -1,69 +1,87 @@
-# Boomtown Starter
+# Cook Crook
 
-## Installation
+A web app for cooks and crooks alike. Users can post, steal and rate their favorite recipes.
 
-Download the repo, then run:
+## Getting Started
 
-```bash
-cd client && npm install
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+
+### Prerequisites
+
+What things you need to install the software and how to install them
+
+```
+Give examples
 ```
 
-## Start-up
+### Installing
 
-From inside the `client` directory, run:
+A step by step series of examples that tell you have to get a development env running
 
-```bash
-npm run dev
+Say what the step will be
+
+```
+Give the example
 ```
 
-to open json-server
-json-server --watch db.json -p 4000
+And repeat
 
-npm install apollo-client-preset react-apollo graphql-tag graphql --save
-ApolloProvider
+```
+until finished
+```
 
-query getItem($itemid:ID){
-item(id:$itemid) {
-title
-available
-}
-}
+End with an example of getting some data out of the system or using it for a little demo
 
-query getUser($userid:ID) {
-user(id:$userid)
-{
-fullname
-}
-}
-query getUsers {
-users {
-fullname
-}
-}
-query getItems{
-items{
-title
-}
-}
-{
-"userid": "LAi9TYWxgGhbjgHu1Sm6ZvB1tRP2",
-"itemid": "3"
-}
+## Running the tests
 
-const mapStateToProps = state => ({
-isLoading: state.profile.isLoading,
-itemsData: state.profile.itemsData,
-error: state.profile.error
-});
-Happy coding :)
+Explain how to run the automated tests for this system
 
-INSERT INTO items (id, title, description, imageurl) VALUES (1, 'Miscellaneous Dishes', 'Eat off of real plates and bowls at your next dinner party. Adulting FTW.','https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Fmisc-dishes.jpg?alt=media');
-INSERT INTO items (id, title, description, imageurl) VALUES (2, 'Camp Stove', 'All you need to cook gourmet meals on your next trek into the wild.','https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Fcamp-stove.jpg?alt=media');
-INSERT INTO items (id, title, description, imageurl) VALUES (3, 'Flute', 'Like-new flute to lend. Cmon, you know you want to play it...','https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Fflute.jpg?alt=media');
-INSERT INTO items (id, title, description, imageurl) VALUES (4, 'Hatchet', 'Chop things down, show nature who is boss. But be safe—alcoholic beverage not included..','https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Fhatchet.jpg?alt=media');
-INSERT INTO items (id, title, description, imageurl) VALUES (5, 'Mix-Tape', 'What is on it? Who knows! Borrow it and find out. Tape deck not included.','https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Fmix-tape.jpg?alt=media');
-INSERT INTO items (id, title, description, imageurl) VALUES (6, 'Learn To Code Books', 'Learn HTML, CSS, JavaScript, and jQuery in 800 pages or less.','https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Fcode-books.jpg?alt=media');
-INSERT INTO items (id, title, description, imageurl) VALUES (7, 'Keyboard', 'Teach your cat to tickle these elephant-friendly (plastic) ivories.','https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Fkeyboard.jpg?alt=media');
-INSERT INTO items (id, title, description, imageurl) VALUES (8, 'Baseball', 'Lightly-used baseball for you and your friend to enjoy at your next ball tournament.','https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Fbaseball.jpg?alt=media');
-INSERT INTO items (id, title, description, imageurl) VALUES (9, 'Skateboard', 'Relive your youth! And try not to seriously injure yourself while doing it!','https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Fskateboard.jpg?alt=media');
-INSERT INTO items (id, title, description, imageurl) VALUES (10,'Iron and Ironing Board', 'Dress for the job you want, not the one you have, with freshly pressed shirts and slacks.','https://firebasestorage.googleapis.com/v0/b/boomtown-dfdd8.appspot.com/o/demo-images%2Firon-and-board.jpg?alt=media');
+### Break down into end to end tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+### And coding style tests
+
+Explain what these tests test and why
+
+```
+Give an example
+```
+
+## Deployment
+
+Add additional notes about how to deploy this on a live system
+
+## Built With
+
+* [React](https://reactjs.org/) - The client framework used
+* [Redux](https://redux.js.org/) - State Management
+* [ROME](https://firebase.google.com/) - Used to generate RSS Feeds
+
+## Contributing
+
+Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## Versioning
+
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+
+## Authors
+
+* **Billie Thompson** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
+
+See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+
+## Acknowledgments
+
+* Hat tip to anyone who's code was used
+* Inspiration
+* etc
