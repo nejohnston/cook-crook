@@ -30,7 +30,6 @@ Layout.defaultProps = {
 
 Layout.propTypes = {
   children: PropTypes.node,
-  authenticated: PropTypes.string.isRequired,
   userLoading: PropTypes.bool.isRequired,
 };
 

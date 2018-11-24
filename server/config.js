@@ -1,17 +1,8 @@
 module.exports = (app) => {
   // Postgresql config
-  app.set(
-    'PGUSER',
-    process.env.PGUSER || 'boomtowndb',
-  );
-  app.set(
-    'PGPASSWORD',
-    process.env.PGPASSWORD || 'boomtowndb',
-  );
-  app.set(
-    'PGDATABASE',
-    process.env.PGDATABASE || 'boomtowndb',
-  );
+  app.set('PGUSER', process.env.PGUSER || 'cookcrookdb');
+  app.set('PGPASSWORD', process.env.PGPASSWORD || 'cookcrookdb');
+  app.set('PGDATABASE', process.env.PGDATABASE || 'cookcrookdb');
   app.set('PGHOST', process.env.PGHOST || 'localhost');
   app.set('PGPORT', process.env.PGPORT || '5432');
   // GRAPHQL CONFIGS
@@ -25,6 +16,6 @@ module.exports = (app) => {
     databaseURL: 'https://cook-crook.firebaseio.com',
     projectId: 'cook-crook',
     storageBucket: 'cook-crook.appspot.com',
-    messagingSenderId: '765329682786',
+    messagingSenderId: '765329682786'
   });
 };

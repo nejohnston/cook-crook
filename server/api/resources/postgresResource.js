@@ -16,7 +16,7 @@ module.exports = async (app) => {
 
   return {
     getItems() {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         client.query(
           'SELECT * FROM items',
           (err, data) => {
@@ -26,7 +26,7 @@ module.exports = async (app) => {
       });
     },
     getSingleItem(id) {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         client.query(
           'SELECT * FROM items WHERE id = $1',
           [id],
@@ -37,7 +37,7 @@ module.exports = async (app) => {
       });
     },
     getTags(itemid) {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         client.query(
           `SELECT * FROM tags 
             INNER JOIN dietTags 
@@ -51,7 +51,7 @@ module.exports = async (app) => {
       });
     },
     getSharedItems(userid) {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         client.query(
           'SELECT * FROM items WHERE itemowner = $1',
           [userid],
@@ -62,7 +62,7 @@ module.exports = async (app) => {
       });
     },
     getBorrowedItems(userid) {
-      return new Promise((resolve, reject) => {
+      return new Promise((resolve) => {
         client.query(
           'SELECT * FROM items WHERE borrower = $1',
           [userid],
@@ -85,17 +85,16 @@ module.exports = async (app) => {
         imageurl,
         itemowner,
       ];
-      tags = tags.map(tag => tag.id);
+      const tagsInsertQuery = `INSERT INTO dietTags(itemid, tagid) VALUES ${tq(tags,)}`;
       const itemInsertQuery =
         'INSERT INTO items(title, description, imageurl, itemowner) VALUES($1, $2, $3, $4) RETURNING *';
+      tags = tags.map(tag => tag.id);
       try {
         await client.query('BEGIN');
         const itemResult = await client.query(
           itemInsertQuery,
           itemValues,
         );
-
-        const tagsInsertQuery = `INSERT INTO dietTags(itemid, tagid) VALUES ${tq(tags,)}`;
 
         await client.query(tagsInsertQuery, [
           itemResult.rows[0].id,

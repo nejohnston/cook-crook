@@ -69,8 +69,8 @@ Login.propTypes = {
   loginError: PropTypes.func.isRequired,
   handleUpdateEmail: PropTypes.func.isRequired,
   handleUpdatePassword: PropTypes.func.isRequired,
-  emailInputValue: PropTypes.func.isRequired,
-  passwordInputValue: PropTypes.func.isRequired,
+  emailInputValue: PropTypes.string.isRequired,
+  passwordInputValue: PropTypes.string.isRequired,
 };
 
 export default Login;

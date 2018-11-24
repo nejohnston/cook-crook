@@ -15,12 +15,6 @@ import './styles.css';
 import { updateModalState } from '../../redux/modules/borrowed';
 
 class RecipesContainer extends Component {
-  static PropTypes = {
-    loading: PropTypes.bool,
-    items: PropTypes.array,
-    dietTags: PropTypes.array,
-    modalOpen: PropTypes.bool,
-  };
   render() {
     const { loading, items } = this.props.data;
     return loading ? (

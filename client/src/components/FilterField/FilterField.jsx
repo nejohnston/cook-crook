@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 
-import store from '../../redux/store';
+import PropTypes from 'prop-types';
 
 import './styles.css';
 
@@ -21,7 +21,7 @@ const menuItems = values =>
     />
   ));
 
-const Filter = ({ tags, handleChange, values }) => (
+const Filter = ({ handleChange, values }) => (
   <SelectField
     multiple
     value={values}
@@ -33,5 +33,10 @@ const Filter = ({ tags, handleChange, values }) => (
     {menuItems(values)}
   </SelectField>
 );
+
+Filter.propTypes = {
+  handleChange: PropTypes.func.isRequired,
+  values: PropTypes.array.isRequired,
+};
 
 export default Filter;

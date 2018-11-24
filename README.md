@@ -60,21 +60,13 @@ Add additional notes about how to deploy this on a live system
 
 * [React](https://reactjs.org/) - The client framework used
 * [Redux](https://redux.js.org/) - State Management
-* [ROME](https://firebase.google.com/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+* [Firebase](https://firebase.google.com/) - Used for authentication, user data
+* [GraphQL](https://www.graphql.com/) - Used for database querying
+* [PostgresQL](https://www.postgresql.org/) - Used for items database
 
 ## Authors
 
-* **Billie Thompson** - _Initial work_ - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+* **Nicholas Johnston** - [Git Hub](https://github.com/nejohnston)
 
 ## License
 
@@ -82,6 +74,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-* Hat tip to anyone who's code was used
-* Inspiration
-* etc
+* Framework of this app is inspired and imitated from my [RED Academy Boomtown Project](http://boom.academy.red/).
